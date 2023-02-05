@@ -1,5 +1,11 @@
 use bracket_lib::prelude::*;
 
+enum GameMode {
+    Menu,
+    Playing,
+    End,
+}
+
 struct State {}
 
 impl GameState for State {
@@ -14,7 +20,7 @@ impl GameState for State {
 fn main() -> BError {
     let context = BTermBuilder::simple80x50()
         .with_title("Flappy Dragon")
-        .build?;
+        .build()?;
 
     main_loop(context, State {})
 }
