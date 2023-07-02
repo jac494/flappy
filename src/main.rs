@@ -11,6 +11,8 @@ const SCREEN_HEIGHT: i32 = 50;
 const FRAME_DURATION: f32 = 45.0;
 const PLAYER_INITIAL_X: i32 = 5;
 const PLAYER_INITIAL_Y: i32 = 25;
+const WALL_CHARACTER: char = '0';
+const PLAYER_CHARACTER: car = '@';
 
 struct Player {
     x: i32,
@@ -28,7 +30,7 @@ impl Player {
     }
 
     fn render(&mut self, ctx: &mut BTerm) {
-        ctx.set(0, self.y, YELLOW, BLACK, to_cp437('@'));
+        ctx.set(0, self.y, YELLOW, BLACK, to_cp437(PLAYER_CHARACTER));
     }
 
     fn gravity_and_move(&mut self) {
@@ -69,11 +71,11 @@ impl Obstacle {
 
         // Draw the top half of the obstacle
         for y in 0..self.gap_y - half_size {
-            ctx.set(screen_x, y, RED, BLACK, to_cp437('|'));
+            ctx.set(screen_x, y, RED, BLACK, to_cp437(WALL_CHARACTER));
         }
         // Draw the bottom half of the obstacle
         for y in self.gap_y + half_size..SCREEN_HEIGHT {
-            ctx.set(screen_x, y, RED, BLACK, to_cp437('|'));
+            ctx.set(screen_x, y, RED, BLACK, to_cp437(WALL_CHARACTER));
         }
     }
 
