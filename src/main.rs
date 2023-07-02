@@ -12,7 +12,7 @@ const FRAME_DURATION: f32 = 45.0;
 const PLAYER_INITIAL_X: i32 = 5;
 const PLAYER_INITIAL_Y: i32 = 25;
 const WALL_CHARACTER: char = '0';
-const PLAYER_CHARACTER: car = '@';
+const PLAYER_CHARACTER: char = '@';
 
 struct Player {
     x: i32,
